@@ -21,7 +21,9 @@ template <typename T> bool LinearSinglyLinkedList<T>::isFullList() {
 }
 
 template <typename T> bool LinearSinglyLinkedList<T>::addElmAtFront(T data) {
-    return false;
+    Node<T> *newNode = new Node<T>{data, head};
+    head = newNode;
+    return true;
 }
 
 template <typename T> bool LinearSinglyLinkedList<T>::insertElmAtEnd(T data) {
