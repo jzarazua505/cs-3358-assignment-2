@@ -3,20 +3,21 @@
 
 #include "node.h"
 
+
 template <typename T>
 class LinearSinglyLinkedList {
     public:
     LinearSinglyLinkedList();
     ~LinearSinglyLinkedList();
-    void setMaxSize();
+    bool setMaxSize(int);
     bool isEmptyList();
     bool isFullList();
-    bool addElmAtFront();
-    bool insertElmAtEnd();
-    bool removefromFront();
-    void copyList();
-    void deleteList();
-   //void nextElm();
+    bool addElmAtFront(T);
+    bool insertElmAtEnd(T);
+    //bool removefromFront(); WHAT DO THE FOLLOWING METHODS RETURN?
+    //void copyList(); WHAT ARGUMENTS DO THEY ACCEPT?
+    //void deleteList();
+    //void nextElm();
     
     private:
     Node<T> *head;
