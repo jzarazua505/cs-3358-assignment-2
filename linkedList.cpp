@@ -9,7 +9,7 @@ template <typename T> LinearSinglyLinkedList<T>::~LinearSinglyLinkedList() {
 }
 
 template <typename T> bool LinearSinglyLinkedList<T>::setMaxSize(int newMaxSize) {
-    return false;
+    maxSize = newMaxSize;
 }
 
 template <typename T> bool LinearSinglyLinkedList<T>::isEmptyList() {
@@ -17,15 +17,31 @@ template <typename T> bool LinearSinglyLinkedList<T>::isEmptyList() {
 }
 
 template <typename T> bool LinearSinglyLinkedList<T>::isFullList() {
-    return false;
+    return maxSize == currentSize;
 }
 
 template <typename T> bool LinearSinglyLinkedList<T>::addElmAtFront(T data) {
     Node<T> *newNode = new Node<T>{data, head};
     head = newNode;
+    currentSize++;
     return true;
 }
 
 template <typename T> bool LinearSinglyLinkedList<T>::insertElmAtEnd(T data) {
-    return false;
+    Node<T> *current = head;
+    Node<T> *previous = nullptr;
+    while (current) {
+        previous = current;
+        current = current->next;
+    }
+    if (!current) {
+        if (previous) {
+            previous->next = new Node<T>{data, nullptr};
+            currentSize++;
+            return true;
+        }
+        
+    } else {
+        return false;
+    }
 }

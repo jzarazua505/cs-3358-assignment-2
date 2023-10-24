@@ -22,6 +22,7 @@ class LinearSinglyLinkedList {
     private:
     Node<T> *head;
     int maxSize;
+    int currentSize;
 };
 
 #endif
