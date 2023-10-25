@@ -6,15 +6,16 @@
 
 template <typename T>
 class LinearSinglyLinkedList {
+    
     public:
-    LinearSinglyLinkedList();
+    LinearSinglyLinkedList(int);
     ~LinearSinglyLinkedList();
     bool setMaxSize(int);
     bool isEmptyList();
     bool isFullList();
     bool addElmAtFront(T);
     bool insertElmAtEnd(T);
-    bool removefromFront(T);
+    bool removefromFront();
     void copyList(); 
     void deleteList();
     void nextElm();
@@ -25,8 +26,10 @@ class LinearSinglyLinkedList {
     int currentSize;
 };
 
-template <typename T> LinearSinglyLinkedList<T>::LinearSinglyLinkedList() {
+template <typename T> LinearSinglyLinkedList<T>::LinearSinglyLinkedList(int initMaxSize) {
     head = nullptr;
+    maxSize = initMaxSize;
+    currentSize = 0;
 }
 
 template <typename T> LinearSinglyLinkedList<T>::~LinearSinglyLinkedList() {
@@ -71,6 +74,32 @@ template <typename T> bool LinearSinglyLinkedList<T>::insertElmAtEnd(T data) {
     }
     currentSize++;
     return true;
+}
+
+template <typename T> bool LinearSinglyLinkedList<T>::removefromFront() {
+    if (!head) {
+        return false;
+    }
+    Node<T> *previous = head;
+    head = head->next;
+    delete previous;
+    return true;
+}
+
+template <typename T> void LinearSinglyLinkedList<T>::copyList() {
+
+}
+
+template <typename T> void LinearSinglyLinkedList<T>::deleteList() {
+    while (head) {
+        Node<T> *previous = head;
+        head = head->next;
+        delete previous;
+    }
+}
+
+template <typename T> void LinearSinglyLinkedList<T>::nextElm() {
+
 }
 
 #endif
