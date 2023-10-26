@@ -16,9 +16,8 @@ class LinearSinglyLinkedList {
     bool addElmAtFront(T);
     bool insertElmAtEnd(T);
     bool removeFromFront();
-    void copyList(); 
     void deleteList();
-    void nextElm();
+    bool nextElm(T&);
     
     private:
     Node<T> *head;
@@ -92,10 +91,6 @@ template <typename T> bool LinearSinglyLinkedList<T>::removeFromFront() {
     return true;
 }
 
-// template <typename T> void LinearSinglyLinkedList<T>::copyList() {
-
-// }
-
 template <typename T> void LinearSinglyLinkedList<T>::deleteList() {
     while (head) {
         Node<T> *previous = head;
@@ -104,8 +99,13 @@ template <typename T> void LinearSinglyLinkedList<T>::deleteList() {
     }
 }
 
-// template <typename T> void LinearSinglyLinkedList<T>::nextElm() {
-
-// }
+template <typename T> bool LinearSinglyLinkedList<T>::nextElm(T &outputData) {
+    if (isEmptyList()) {
+        outputData = {};
+        return false;
+    }
+    outputData = head->data;
+    return true;
+}
 
 #endif
